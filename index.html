@@ -113,6 +113,25 @@
             font-weight: 400;
         }
 
+        @media (max-width: 768px) {
+            .hero p {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero p {
+                font-size: 16px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .hero p {
+                font-size: 14px;
+            }
+        }
+
         .cta-button {
             display: inline-block;
             background: var(--primary-blue);
@@ -381,6 +400,92 @@
                 gap: 16px;
             }
 
+            .stats-section {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 15px 0;
+            }
+
+            .stats-section .stat-item {
+                min-width: 120px;
+                flex: 1 1 calc(50% - 10px);
+            }
+
+            .task-square {
+                padding: 20px;
+                margin: 20px 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-card {
+                padding: 16px;
+                margin: 0;
+                width: calc(100% - 32px);
+                box-sizing: border-box;
+            }
+        }
+
+        /* 超小屏幕优化 */
+        @media (max-width: 480px) {
+            .stats-section {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px 0;
+            }
+
+            .stats-section .stat-item {
+                min-width: auto;
+                flex: none;
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .stat-label {
+                font-size: 14px;
+            }
+
+            .task-square {
+                padding: 16px;
+                margin: 16px 12px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-card {
+                padding: 12px;
+                margin: 0;
+                width: calc(100% - 24px);
+                box-sizing: border-box;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .project-description {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .footer-links {
                 flex-direction: column;
                 gap: 16px;
@@ -595,9 +700,7 @@
             justify-content: center;
             gap: 40px;
             margin: 30px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 12px;
+            padding: 20px 0;
         }
 
         /* 模态框样式 */
@@ -825,7 +928,7 @@
     <section class="hero">
         <div class="hero-container">
             <h1>小x宝社区</h1>
-            <p>专注于肿瘤/罕见病患者的AI开源公益社区</p>
+            <p id="hero-subtitle">专注于肿瘤/罕见病患者的AI开源公益社区</p>
             <a href="#about" class="cta-button">了解更多</a>
         </div>
     </section>
@@ -1596,7 +1699,7 @@
              },
             {
                 id: 10,
-                title: "LLM/RAG 测评框架（llm-benchmarking）",
+                title: "LLM/RAG 测评框架",
                 category: "RAG生态",
                 description: "建立小x宝社区统一的LLM/RAG测评框架，提供统一的评价规范和指标体系，并保持与RAG技术框架和架构的同步。",
                 tags: ["RAG", "Benchmark", "测评", "LLM", "质量评估"],
@@ -1610,6 +1713,59 @@
                     level: "B",
                     progress: "迭代中",
                     deliverables: "仓库: <a href='https://github.com/PancrePal-xiaoyibao/rag-benchmarking' target='_blank' rel='noopener'>rag-benchmarking</a>"
+                }
+            },
+            {
+                id: 11,
+                title: "小雪宝 - 白血病AI关爱助手",
+                category: "小x宝助手",
+                description: "社区驱动、医生主导的公益AI项目，为白血病患者、家属及临床医生提供智能、可靠、富有同理心的信息支持与自我管理平台。",
+                tags: ["白血病", "儿童关爱", "RAG", "医疗AI", "公益"],
+                status: "recruiting",
+                team: "小雪宝项目组",
+                contact: "项目负责人：帅帅 (微信: lishuaishuaiV587)",
+                details: {
+                    contact: {
+                        leader: "帅帅",
+                        wechat: "lishuaishuaiV587",
+                        note: "备注：白血病志愿者申请",
+                        process: "添加微信后填写简单3分钟志愿者飞书问卷"
+                    },
+                    objective: "为白血病患者、家属及临床医生提供智能、可靠、富有同理心的信息支持与自我管理平台",
+                    coreValue: [
+                        "消除信息鸿沟: 提供权威、个性化的白血病相关知识问答",
+                        "儿童白血病关爱: 特别关注儿童患者，提供适龄的科普和心理支持",
+                        "医生辅助工具: 为临床医生提供高效的文献查询与知识检索工具",
+                        "公益性质: 完全免费开源，致力于服务白血病患者群体"
+                    ],
+                    features: [
+                        "智能问答系统 - 基于权威指南（NCCN, CSCO）的精准医疗知识问答",
+                        "儿童关爱模块 - 绘本风格和动画形式的儿童科普内容",
+                        "医生专业工具 - 精细化医疗知识检索和最新研究文献查询",
+                        "个性化管理 - 匿名用户画像系统和个性化内容推荐"
+                    ],
+                    coverage: ["ALL（急性淋巴细胞白血病）", "AML（急性髓系白血病）", "CLL（慢性淋巴细胞白血病）", "CML（慢性髓系白血病）"],
+                    implementationPlan: {
+                        mvp: {
+                            title: "MVP阶段 (1-2个月)",
+                            description: "基于腾讯元器、Coze等低代码平台，快速搭建知识库和核心问答工作流",
+                            deliverables: "可供早期用户体验的Demo版本"
+                        },
+                        opensource: {
+                            title: "开源阶段",
+                            description: "参照小铃铛的RAG技术栈，在社区招募开发人员，借助AI辅助编程，逐步迁移至开源架构",
+                            deliverables: "开源RAG系统和高级功能"
+                        },
+                        future: {
+                            title: "未来演进",
+                            description: "引入基于脱敏病例训练的垂直模型，探索与智能硬件的结合",
+                            deliverables: "更主动、更精准的健康管理服务"
+                        }
+                    },
+                    specialFocus: "特别关注儿童白血病患者，提供适龄的科普内容和心理支持，让患儿在艰难的治疗道路上感受到更多关爱与力量",
+                    requirements: "具备医疗AI背景，了解白血病相关知识，有RAG技术经验，具备同理心和公益精神",
+                    value: "打造国内首个专注于白血病，特别是强化儿童白血病支持的AI助手，赋能每一位患者拥有更美好的人生",
+                    timeline: "MVP阶段1-2个月，开源阶段持续迭代，长期演进"
                 }
             }
         ];
