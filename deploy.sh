@@ -28,7 +28,15 @@ if [ -d ".git" ]; then
     exit 0
 fi
 
-# 方法4: 使用本地服务器 + 隧道
+# 方法4: 使用EdgeOne CLI部署
+if command -v edgeone &> /dev/null; then
+    echo "使用EdgeOne CLI部署..."
+    source .env
+    edgeone pages deploy . -n "community-introduction" -t "$EDGEONE_API_TOKEN"
+    exit 0
+fi
+
+# 方法5: 使用本地服务器 + 隧道
 echo "使用本地服务器 + cloudflared隧道..."
 echo "启动本地服务器..."
 python3 -m http.server 8080 &
